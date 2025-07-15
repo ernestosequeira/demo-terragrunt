@@ -1,0 +1,18 @@
+module: "terraform-google-cloud-storage"
+version: "v9.1.0"
+project_id: "d-cord-1725"
+
+names:
+  - demo-bucket-01-us-dev
+location: "US"
+storage_class: "MULTI_REGIONAL"
+versioning:
+  demo-bucket-01-us-dev: false
+force_destroy:
+  demo-bucket-01-us-dev: false
+bucket_policy_only:
+  demo-bucket-01-us-dev: false
+labels:
+  environment: dev
+public_access_prevention: enforced
+set_storage_admin_roles: false

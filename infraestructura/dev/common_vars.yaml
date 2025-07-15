@@ -1,0 +1,4 @@
+project: "d-cord-1725"
+env: dev
+network_name: vpc-cord-01
+region: us-west1

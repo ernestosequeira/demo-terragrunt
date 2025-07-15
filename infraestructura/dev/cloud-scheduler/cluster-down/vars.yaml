@@ -1,0 +1,31 @@
+
+module: "terraform-google-scheduled-function"
+version: "v6.0.0"
+project_id: "d-cord-1725"
+
+job_name: "stop-cluster-22-00pm"
+schedule: "0 22 * * 5"
+time_zone: "America/Lima"
+function_name: "scale-cluster-dev"
+description: "Apagado automatico del cluster  Viernes a las 22:00 H"
+region: "us-west1"
+uri: "https://us-west1-d-cord-1725.cloudfunctions.net/scale-cluster-dev"
+http_method: "POST"
+body: |
+    {
+      "project_id": "d-cord-1725",
+      "cluster_name": "gke-dev-cord-us-west1",
+      "location": "us-west1",
+      "autoscaling_enabled": false,
+      "node_count": 0,
+      "force_node_count": true
+    }
+headers:
+    Content-Type: "application/json"
+    Authorization: "bearer $(gcloud auth print-identity-token)"
+service_account_email: "sa-artifact-registry-push@d-cord-1725.iam.gserviceaccount.com"
+audience: "https://scale-cluster-dev-114866013815.us-west1.run.app"
+
+
+
+
