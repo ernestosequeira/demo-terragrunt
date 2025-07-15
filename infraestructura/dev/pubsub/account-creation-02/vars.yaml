@@ -1,0 +1,20 @@
+module: terraform-google-pubsub
+version: v3.2.0
+submodule: ""
+
+project_id: d-cord-1725
+topic: account-creation-02-topic
+grant_token_creator: false
+topic_labels:
+  context: retail
+  environment: dev
+pull_subscriptions: 
+  -
+    name: account-creation-02-subscription
+    enable_message_ordering: false
+    max_delivery_attempts: 5
+    ack_deadline_seconds: 10
+    expiration_policy: ""
+subscription_labels:
+  context: retail
+  environment: dev
